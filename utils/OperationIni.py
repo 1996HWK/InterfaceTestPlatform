@@ -11,7 +11,7 @@ class OperationIni(object):
 
     @staticmethod
     def check_value(result):
-        "检查value"
+        " 检查value"
         if not result:
             raise Exception("测试用例路径为空")
         else:
@@ -21,7 +21,10 @@ class OperationIni(object):
     def test_case_path(self):
         "返回测试用例文件路径"
         file_path = self.config.get("DEFAULT", "Test_Case")
-        return self.check_value(file_path)
+        if self.check_value(file_path):
+            return file_abs_path("data", file_path)
+        else:
+            return None
 
         
 
