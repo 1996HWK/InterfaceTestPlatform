@@ -3,7 +3,7 @@ class Variable(object):
 
     def get(self, value):
         """ 获取全局值 """
-        return getattr(self, value, None)
+        return getattr(self, value, "")
 
     def set(self, key, value):
         """ 设置全局变量 """
