@@ -1,6 +1,6 @@
 # 操作excel
 import xlrd
-from OperationIni import OperationIni
+from utils.OperationIni import OperationIni
 
 
 class VarName(object):
@@ -45,7 +45,4 @@ class Excel(object):
         return test_all
 
 
-if __name__ == '__main__':
-    excel = Excel()
-    print(excel.get_case())
 

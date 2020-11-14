@@ -25,6 +25,14 @@ class OperationIni(object):
             return file_abs_path("data", file_path)
         else:
             return None
+        
+    @property
+    def test_url(self):
+        """ 返回测试地址 """
+        test_url_path = self.config.get("DEFAULT", "Test_Url")
+        return test_url_path
+
+
 
         
 
