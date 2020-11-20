@@ -4,13 +4,15 @@ from utils.OperationIni import OperationIni
 
 
 class VarName(object):
-    Title = "测试模块"
+    Module = "模块"
+    Title = "测试标题"
     Run = "执行"
     URl = "请求地址"
     Method = "请求方法"
     Header = "请求头"
     Data = "请求内容"
-    Assertion = "断言"
+    ContentAssertion = "内容断言"
+    StatusAssertion = "状态码"
     SaveDate = "保存数据"
 
 
