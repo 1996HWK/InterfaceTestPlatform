@@ -4,11 +4,15 @@ import pytest
 from utils.OperationExcel import Excel,VarName
 from utils.OperationIni import OperationIni
 from src.SendService import SendService
+from src.variable import Variable
 
+
+# 变量类
+var = Variable()
 
 # 获取测试用例
 excel = Excel()
-case_list = excel.get_case()
+case_list = excel.get_case(var)
 varName = VarName()
 
 # 生成请求
@@ -18,8 +22,8 @@ http = SendService()
 config = OperationIni()
 
 # 参数化
-@pytest.mark.parametrize("case_list", case_list)
-def test_main(case_list):
+@pytest.mark.parametrize("case_", case_list)
+def test_main(case_):
     requests_url = config.test_url + case_list[varName.URl]
     requests_headers = case_list[varName.Header] if case_list[varName.Header] else None
     requests_data = case_list[varName.Data] if case_list[varName.Data] else None
@@ -30,7 +34,7 @@ def test_main(case_list):
         )
     elif case_list[varName.Method].lower == "post":
         response = http.post(
-            
+
         )
 
     

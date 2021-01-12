@@ -1,6 +1,8 @@
 # 操作excel
+import json
 import xlrd
 from utils.OperationIni import OperationIni
+from src.variable import Variable
 
 
 class VarName(object):
@@ -36,15 +38,26 @@ class Excel(object):
             test_all_case.append(dict(zip(title, value)))
         return test_all_case
 
-    def get_case(self):
+    def get_case(self, obj):
         """ 返回执行的测试用例 """
         data = self.get_all_data()
         test_all = []
         for d in data:
             if d[VarName.Run] == "turn":
-                test_all.append(d)
-
+                test_all.append(self.__processor(d, obj))
         return test_all
 
+    def __processor(self, data, obj):
+        """ 处理请求头和 请求内容"""
+        new_data = dict(data)
+        for key in dict(data).keys():
+            if key in (VarName.Header, VarName.Data):
+                if dict(data)[key]:     # 不为空
+                    son = json.loads(dict(data)[key])
+                    for ddt, ddt_value in json.loads(dict(data)[key]).items():
+                        if '$'in ddt_value:
+                           son[ddt] = obj.get(str(ddt_value[1:]))
+                    new_data[key] = son
+        return new_data
 
 
