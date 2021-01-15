@@ -30,7 +30,7 @@ class Excel(object):
 
     def get_all_data(self):
         """ 返回所有的数据 """
-        table = self.data.sheet_by_name("Sheet1")
+        table = self.data.sheet_by_index(0)
         title = table.row_values(0)
         test_case = [table.row_values(i) for i in range(1, table.nrows)]
         test_all_case = []
@@ -59,5 +59,3 @@ class Excel(object):
                            son[ddt] = obj.get(str(ddt_value[1:]))
                     new_data[key] = son
         return new_data
-
-
