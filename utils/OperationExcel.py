@@ -43,7 +43,7 @@ class Excel(object):
         data = self.get_all_data()
         test_all = []
         for d in data:
-            if d[VarName.Run] == "turn":
+            if d[VarName.Run].lower() == 'true':
                 test_all.append(self.__processor(d, obj))
         return test_all
 
