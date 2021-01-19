@@ -25,8 +25,8 @@ class Excel(object):
 
     @staticmethod
     def _get_data():
-        data = xlrd.open_workbook(OperationIni().test_case_path)
-        return data
+        xls_data = xlrd.open_workbook(OperationIni().test_case_path)
+        return xls_data
 
     def get_all_data(self):
         """ 返回所有的数据 """
@@ -38,24 +38,32 @@ class Excel(object):
             test_all_case.append(dict(zip(title, value)))
         return test_all_case
 
-    def get_case(self, obj):
+    def get_case(self):
         """ 返回执行的测试用例 """
-        data = self.get_all_data()
+        case_data = self.get_all_data()
         test_all = []
-        for d in data:
-            if d[VarName.Run].lower() == 'true':
-                test_all.append(self.__processor(d, obj))
+        for d in case_data:
+            if d[VarName.Run] == 1:
+                test_all.append(d)
         return test_all
 
-    def __processor(self, data, obj):
-        """ 处理请求头和 请求内容"""
-        new_data = dict(data)
-        for key in dict(data).keys():
-            if key in (VarName.Header, VarName.Data):
-                if dict(data)[key]:     # 不为空
-                    son = json.loads(dict(data)[key])
-                    for ddt, ddt_value in json.loads(dict(data)[key]).items():
-                        if '$'in ddt_value:
-                           son[ddt] = obj.get(str(ddt_value[1:]))
-                    new_data[key] = son
-        return new_data
+    def processor(self, data, obj):
+        if data:
+            """ 处理请求头和 请求内容"""
+            new_data = eval(data)
+            for key in eval(data).keys():
+                if '$' in eval(data)[key]:
+                    value = obj.get(str(eval(data)[key][1:]))
+                    new_data[key] = value
+            return new_data
+        else:
+            return None
+
+
+if __name__ == "__main__":
+    pass
+    # var = Variable()
+    # var.set("token","111111")
+    # excel = Excel()
+    # data = excel.processor('{"Authorization":"$token"}', var)
+    # print(data)

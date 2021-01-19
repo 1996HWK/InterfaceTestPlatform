@@ -1,44 +1,26 @@
 """ 保存全局变量 """
-import json
 
 
 class SaveVariable(object):
-    def __init__(self, string, var):
+    def __init__(self):
+        pass
+
+    def save(self, string, var, save_dict):
         """
-        :param string: 一段josn
+        :param string: 接口返回值
+        :param var:保存变量类实例
+        :param save_dict:需要保存的数据
         """
-        self.json_string = string
-        self.var = var
+        response_data = string
+        var = var
+        save_dict = eval(save_dict)
         try:
-            if self.json_string:
-                """ 需要保存数据 """
-                # 检查json
-                result = self.__check_json()
-                if result:
-                    """ 保存操作 """
-                    for key, value in result.items():
-                        var.set(key, value)
-                else:
-                    print("不操作")
+            if save_dict:
+                """ 保存数据 """
+                for key, value in save_dict.items():
+                    var.set(key, eval(value))
             else:
                 """ 如果字符串为空，不保存数据 """
-                # pass
-                print("不操作")
-
+                pass
         except Exception as e:
-            # pass
-            print("不操作", e)
-
-    def __check_json(self):
-        """
-        检查json，是否存在问题
-        """
-        try:
-            # change json
-            result = json.loads(self.json_string)
-            return result
-
-        except Exception as e:
-            return None
-
-
+            pass
