@@ -58,11 +58,10 @@ def send_res(data, var_obj):
 def assertion(data, response):
     """ 断言"""
     if data[varName.ContentAssertion]:
-        data_json = json.loads(data[varName.ContentAssertion])
+        data_json = eval(data[varName.ContentAssertion])
         response_json = response.json()
-        print("接口返回结果:", response_json)
         for key in data_json.keys():
-            if data_json[key] != response_json[key]:
+            if eval(key) != data_json[key]:
                 return False
         return True
 

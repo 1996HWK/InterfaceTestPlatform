@@ -59,11 +59,3 @@ class Excel(object):
         else:
             return None
 
-
-if __name__ == "__main__":
-    pass
-    # var = Variable()
-    # var.set("token","111111")
-    # excel = Excel()
-    # data = excel.processor('{"Authorization":"$token"}', var)
-    # print(data)
