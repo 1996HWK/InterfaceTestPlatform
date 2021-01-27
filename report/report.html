@@ -242,53 +242,29 @@ function filter_table(elem) {
     not_found_message.hidden = !all_rows_hidden;
 }
 </script>
-    <h1>report.html</h1>
-    <p>Report generated on 15-Jan-2021 at 11:52:46 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
+    <h1>My very own title!</h1>
+    <p>Report generated on 25-Jan-2021 at 15:05:52 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v2.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
-        <td>JAVA_HOME</td>
-        <td>D:\Java\Java\jdk1.8.0_144</td></tr>
+        <td>接口地址</td>
+        <td><a href="https://www.cnblogs.com/linuxchao/" target="_blank">https://www.cnblogs.com/linuxchao/</a></td></tr>
       <tr>
-        <td>Packages</td>
-        <td>{"pluggy": "0.12.0", "py": "1.8.0", "pytest": "5.0.1"}</td></tr>
-      <tr>
-        <td>Platform</td>
-        <td>Windows-10-10.0.18362-SP0</td></tr>
-      <tr>
-        <td>Plugins</td>
-        <td>{"arraydiff": "0.3", "doctestplus": "0.3.0", "html": "2.1.1", "metadata": "1.9.0", "openfiles": "0.3.2", "remotedata": "0.3.1", "tavern": "1.0.0"}</td></tr>
-      <tr>
-        <td>Python</td>
-        <td>3.7.3</td></tr></table>
+        <td>项目名称</td>
+        <td>接口自动化</td></tr></table>
     <h2>Summary</h2>
-    <p>2 tests ran in 0.49 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>所属部门: xx测试中心</p>
+    <p>测试人员: Linux超</p>
+    <p>0 tests ran in 0.25 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
         <tr>
           <th class="sortable result initial-sort" col="result">Result</th>
+          <th class="sortable time" col="time">Time</th>
           <th class="sortable" col="name">Test</th>
-          <th class="sortable numeric" col="duration">Duration</th>
-          <th>Links</th></tr>
+          <th>Description</th>
+          <th class="sortable numeric" col="duration">Duration</th></tr>
         <tr hidden="true" id="not-found-message">
-          <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
-        <tr>
-          <td class="col-result">Failed</td>
-          <td class="col-name">run.py::test_main[使用非正常用户购买]</td>
-          <td class="col-duration">0.02</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">case_ = {&#x27;保存数据&#x27;: &#x27;&#x27;, &#x27;内容断言&#x27;: &#x27;{&quot;code&quot;:200&quot;message&quot;:&quot;该用户不存在&quot;}&#x27;, &#x27;执行&#x27;: &#x27;turn&#x27;, &#x27;模块&#x27;: &#x27;购买&#x27;, ...}<br/><br/>    @pytest.mark.parametrize(&quot;case_&quot;, case_list, ids=test_title)<br/>    def test_main(case_):<br/>        response = send_res(case_)<br/>&gt;       assert assertion(case_, response) == True<br/><br/>run.py:73: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>run.py:59: in assertion<br/>    data_json = json.loads(data[varName.ContentAssertion])<br/>D:\Anaconda3\lib\json\__init__.py:348: in loads<br/>    return _default_decoder.decode(s)<br/>D:\Anaconda3\lib\json\decoder.py:337: in decode<br/>    obj, end = self.raw_decode(s, idx=_w(s, 0).end())<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;json.decoder.JSONDecoder object at 0x000001E1D1A09F60&gt;, s = &#x27;{&quot;code&quot;:200&quot;message&quot;:&quot;该用户不存在&quot;}&#x27;, idx = 0<br/><br/>    def raw_decode(self, s, idx=0):<br/>        &quot;&quot;&quot;Decode a JSON document from ``s`` (a ``str`` beginning with<br/>        a JSON document) and return a 2-tuple of the Python<br/>        representation and the index in ``s`` where the document ended.<br/>    <br/>        This can be used to decode a JSON document from a string that may<br/>        have extraneous data at the end.<br/>    <br/>        &quot;&quot;&quot;<br/>        try:<br/>&gt;           obj, end = self.scan_once(s, idx)<br/><span class="error">E           json.decoder.JSONDecodeError: Expecting &#x27;,&#x27; delimiter: line 1 column 12 (char 11)</span><br/><br/>D:\Anaconda3\lib\json\decoder.py:353: JSONDecodeError<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">run.py::test_main[正常购买]</td>
-          <td class="col-duration">0.12</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>
+          <th colspan="5">No results found. Try to check the filters</th></tr></thead></table></body></html>

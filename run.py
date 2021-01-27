@@ -68,16 +68,14 @@ def assertion(data, response):
     else:
         return response.status_code == data[varName.StatusAssertion]
 
-# 执行测试用例
-@pytest.mark.parametrize("case_", case_list, ids=test_title)
-def test_main(case_):
-    response = send_res(case_, var)
-    # 保存变量
-    if case_[varName.SaveDate]:
-        save.save(response.json(), var, case_[varName.SaveDate])
-    
-    assert assertion(case_, response) == True
 
+class TestRun():
+    # 执行测试用例
+    @pytest.mark.parametrize("case_", case_list, ids=test_title)
+    def test_main(self, case_):
+        response = send_res(case_, var)
+        # 保存变量
+        if case_[varName.SaveDate]:
+            save.save(response.json(), var, case_[varName.SaveDate])
+        assert assertion(case_, response) == True
 
-if __name__ == "__main__":
-    pytest.main(["run.py","-f", "--html", "./report/report.html"])
